@@ -259,15 +259,43 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
 .skill-cell li { color: var(--fog); font-size: 0.9rem; padding: 3px 0; }
 .muted-label { color: var(--fog); font-weight: 400; text-transform: none; letter-spacing: 0; }
 
-.contact-grid { display: flex; gap: 16px; flex-wrap: wrap; }
-.contact-card {
-  flex: 1; min-width: 200px;
-  background: var(--panel); border: 1px solid var(--panel-border); border-radius: 6px;
-  padding: 20px; text-align: left;
+.contact-note { color: var(--fog); margin: -18px 0 24px; max-width: 62ch; }
+.contact-panel {
+  max-width: 920px; padding: 18px; background: rgba(18, 27, 38, 0.62);
+  border: 1px solid var(--panel-border); border-radius: 8px;
 }
-.contact-card .label { font-family: var(--mono); font-size: 0.72rem; color: var(--fog); text-transform: uppercase; margin-bottom: 8px; display: block; }
-.contact-card a { font-family: var(--mono); font-size: 0.95rem; word-break: break-all; }
+.contact-actions {
+  display: grid; grid-template-columns: minmax(260px, 1fr) minmax(180px, 0.45fr);
+  gap: 1px; background: var(--panel-border); border: 1px solid var(--panel-border);
+  border-radius: 6px; overflow: hidden;
+}
+.contact-action {
+  min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px 18px;
+  background: var(--panel); font-family: var(--mono); font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.contact-action:hover { background: rgba(96, 218, 232, 0.06); text-decoration: none; }
+.contact-action .label,
+.social-block > .label {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--fog);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.social-block { margin-top: 16px; }
+.social-block > .label { display: block; margin-bottom: 10px; }
+.social-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.social-link {
+  min-height: 40px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border: 1px solid var(--panel-border); border-radius: 999px;
+  background: rgba(18, 27, 38, 0.72); font-family: var(--mono); font-size: 0.86rem;
+}
+.social-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+.social-link:hover { background: rgba(96, 218, 232, 0.06); border-color: var(--signal); text-decoration: none; }
 .placeholder-flag { color: var(--amber); font-size: 0.72rem; font-family: var(--mono); display: block; margin-top: 6px; }
+
+@media (max-width: 700px) {
+  .contact-panel { padding: 14px; }
+  .contact-actions { grid-template-columns: 1fr; }
+}
 
 .site-footer { padding: 40px 0 60px; text-align: center; color: var(--fog); font-family: var(--mono); font-size: 0.78rem; position: relative; z-index: 1; }
 
@@ -301,6 +329,7 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
   margin: 0 0 18px;
 }
 .page-lede { color: var(--fog); max-width: 62ch; margin: 0 0 36px; }
+.page-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: -14px 0 36px; }
 .detail-section { padding: 44px 0; }
 .section-head.compact { margin-bottom: 22px; }
 .section-intro { margin: -8px 0 22px; color: var(--fog); max-width: 62ch; }

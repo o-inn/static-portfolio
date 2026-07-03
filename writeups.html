@@ -8,6 +8,9 @@ permalink: /writeups/
 <div class="page-kicker">BUILD/BREAK/FIX LOGS</div>
 <h1 class="page-title">Writeups</h1>
 <p class="page-lede">Short incident and build notes from the homelab. The goal is practical evidence: what broke, how it was diagnosed, what changed, and what should be improved next.</p>
+<div class="page-actions">
+  <a class="btn" href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+</div>
 
 {% assign incident_posts = site.posts | where: 'type', 'incident' %}
 {% assign build_posts = site.posts | where: 'type', 'build' %}

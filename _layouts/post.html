@@ -6,7 +6,12 @@ layout: default
 
   {% assign status = page.status | default: page.category_label | default: 'Writeup' %}
   {% assign type_label = page.type | default: 'writeup' | replace: '-', ' ' | upcase %}
-  <div class="post-meta">{{ status | upcase }} · {{ type_label }} · {{ page.date | date: '%B %Y' | upcase }}</div>
+  {% assign word_count = content | number_of_words %}
+  {% assign reading_time = word_count | divided_by: 200 %}
+  {% if reading_time < 1 %}
+    {% assign reading_time = 1 %}
+  {% endif %}
+  <div class="post-meta">{{ status | upcase }} · {{ type_label }} · {{ page.date | date: '%B %Y' | upcase }} · {{ reading_time }} MIN READ</div>
   <h1 class="post-title">{{ page.title }}</h1>
 
   {% if page.tags %}
