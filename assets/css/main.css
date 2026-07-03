@@ -57,6 +57,7 @@ header.nav {
 .nav-inner {
   max-width: var(--max-w); margin: 0 auto; padding: 16px 24px;
   display: flex; align-items: center; justify-content: space-between;
+  position: relative;
 }
 .logo {
   font-family: var(--mono); font-size: 0.95rem; color: var(--paper);
@@ -67,9 +68,32 @@ header.nav {
 nav.links { display: flex; gap: 24px; font-family: var(--mono); font-size: 0.85rem; }
 nav.links a { color: var(--fog); }
 nav.links a:hover { color: var(--signal); }
+.mobile-menu { display: none; }
 
 @media (max-width: 640px) {
   nav.links { display: none; }
+  .mobile-menu { display: block; font-family: var(--mono); font-size: 0.85rem; }
+  .mobile-menu summary {
+    list-style: none; cursor: pointer; color: var(--paper);
+    border: 1px solid var(--panel-border); border-radius: 4px;
+    padding: 7px 10px; line-height: 1;
+  }
+  .mobile-menu summary::-webkit-details-marker { display: none; }
+  .mobile-menu summary::after { content: ' ≡'; color: var(--signal); }
+  .mobile-menu[open] summary { border-color: var(--signal); }
+  .mobile-menu[open] summary::after { content: ' ×'; color: var(--amber); }
+  .mobile-menu summary:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+  .mobile-menu-panel {
+    position: absolute; top: calc(100% - 6px); left: 24px; right: 24px;
+    display: grid; gap: 1px; overflow: hidden;
+    background: var(--panel-border); border: 1px solid var(--panel-border); border-radius: 6px;
+    box-shadow: 0 20px 50px -24px rgba(0,0,0,0.85);
+  }
+  .mobile-menu-panel a {
+    background: rgba(22, 31, 42, 0.98); color: var(--fog);
+    padding: 14px 16px;
+  }
+  .mobile-menu-panel a:hover { color: var(--signal); text-decoration: none; }
 }
 
 /* ---- HERO ---- */
