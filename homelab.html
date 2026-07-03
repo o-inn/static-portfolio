@@ -1,0 +1,155 @@
+---
+layout: page
+title: "Homelab & Toolbox"
+description: "A structured overview of the homelab architecture, security tooling, monitoring stack, automation, and infrastructure tools used hands-on."
+permalink: /homelab/
+---
+
+<div class="breadcrumb"><a href="{{ '/' | relative_url }}">← back to homepage</a></div>
+<div class="page-kicker">HOMELAB ARCHITECTURE</div>
+<h1 class="page-title">Homelab &amp; Toolbox</h1>
+<p class="page-lede">A practical environment for learning infrastructure, monitoring, security detection, identity, and automation by running real services and fixing real breakages.</p>
+
+<section class="detail-section">
+  <div class="section-head compact">
+    <span class="section-num">01</span>
+    <h2>Architecture</h2>
+  </div>
+
+  <div class="architecture-map" aria-label="Homelab architecture overview">
+    <div class="arch-node arch-core">
+      <span class="arch-label">Core Host</span>
+      <strong>Linux server</strong>
+      <small>Docker-managed service stack</small>
+    </div>
+
+    <div class="arch-grid">
+      <article class="arch-node">
+        <span class="arch-label">Runtime</span>
+        <strong>Docker / Dockge</strong>
+        <small>Containerised services and stack management</small>
+      </article>
+      <article class="arch-node">
+        <span class="arch-label">Security</span>
+        <strong>Wazuh + Suricata</strong>
+        <small>SIEM, alerting, and network intrusion detection</small>
+      </article>
+      <article class="arch-node">
+        <span class="arch-label">Monitoring</span>
+        <strong>Grafana stack</strong>
+        <small>Prometheus metrics, Loki logs, Grafana dashboards</small>
+      </article>
+      <article class="arch-node">
+        <span class="arch-label">Access</span>
+        <strong>Authentik + Cloudflare Tunnel</strong>
+        <small>Identity layer and safer service exposure</small>
+      </article>
+      <article class="arch-node">
+        <span class="arch-label">Automation</span>
+        <strong>n8n</strong>
+        <small>Workflow automation for repeatable admin tasks</small>
+      </article>
+      <article class="arch-node">
+        <span class="arch-label">Writeups</span>
+        <strong>Jekyll</strong>
+        <small>Markdown notes for incidents, builds, and projects</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="section-head compact">
+    <span class="section-num">02</span>
+    <h2>Toolbox</h2>
+  </div>
+
+  <div class="toolbox-grid">
+    <article class="toolbox-card">
+      <h3>Infrastructure</h3>
+      <ul>
+        <li>Linux server administration</li>
+        <li>Docker container deployment</li>
+        <li>Dockge stack management</li>
+        <li>Cloudflare Tunnel exposure</li>
+      </ul>
+    </article>
+
+    <article class="toolbox-card">
+      <h3>Security</h3>
+      <ul>
+        <li>Wazuh SIEM and alerting</li>
+        <li>Suricata IDS coverage</li>
+        <li>Log review and triage</li>
+        <li>Incident writeups and root-cause notes</li>
+      </ul>
+    </article>
+
+    <article class="toolbox-card">
+      <h3>Monitoring</h3>
+      <ul>
+        <li>Grafana dashboards</li>
+        <li>Prometheus metrics</li>
+        <li>Loki log storage</li>
+        <li>Promtail log shipping</li>
+      </ul>
+    </article>
+
+    <article class="toolbox-card">
+      <h3>Automation</h3>
+      <ul>
+        <li>n8n workflow automation</li>
+        <li>Repeatable admin tasks</li>
+        <li>Service health checks</li>
+        <li>Operational reminders and cleanup flows</li>
+      </ul>
+    </article>
+
+    <article class="toolbox-card">
+      <h3>Identity &amp; Access</h3>
+      <ul>
+        <li>Authentik identity layer</li>
+        <li>Centralised service access</li>
+        <li>Proxy-aware application exposure</li>
+        <li>Access-control experimentation</li>
+      </ul>
+    </article>
+
+    <article class="toolbox-card">
+      <h3>Documentation</h3>
+      <ul>
+        <li>Markdown incident notes</li>
+        <li>Jekyll writeup publishing</li>
+        <li>Build/break/fix logs</li>
+        <li>Portfolio-facing evidence</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="section-head compact">
+    <span class="section-num">03</span>
+    <h2>Changelog</h2>
+  </div>
+
+  <p class="section-intro">Short operational history of the lab. Larger changes and failures can be expanded into full Markdown writeups over time.</p>
+
+  <div class="changelog-list">
+    {% for item in site.data.changelog %}
+    <article class="changelog-entry">
+      <div class="log-meta">
+        <span class="sev {{ item.severity | default: 'info' }}">{{ item.status }}</span>
+        <span class="ts">{{ item.date }}</span>
+      </div>
+      <div class="log-content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+        {% if item.writeup_slug %}
+          <a href="{{ '/writeups/' | append: item.writeup_slug | append: '/' | relative_url }}" class="mono-link">Read writeup →</a>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

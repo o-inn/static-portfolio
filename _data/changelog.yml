@@ -1,0 +1,34 @@
+- date: "Jul 2026"
+  status: "PUBLISHING"
+  severity: "info"
+  title: "Added Jekyll writeups system"
+  summary:
+    "Converted the static portfolio into a Jekyll site so incidents, builds,
+    projects, and notes can be written in Markdown and rendered through the site
+    theme."
+  writeup_slug: "test-writeup"
+
+- date: "In progress"
+  status: "ACCESS"
+  severity: "warn"
+  title: "Identity and secure access layer"
+  summary:
+    "Centralising access with Authentik, exposing selected services through
+    Cloudflare Tunnel, and reducing ad-hoc access patterns across the lab."
+
+- date: "Built"
+  status: "MONITORING"
+  severity: "info"
+  title: "Grafana / Prometheus / Loki observability"
+  summary:
+    "Added metrics, logs, and dashboards so services are visible during normal
+    operation and easier to diagnose when they degrade."
+  writeup_slug: "server-monitoring-observability"
+
+- date: "Built"
+  status: "SECURITY"
+  severity: "ok"
+  title: "Wazuh and Suricata security stack"
+  summary:
+    "Stood up SIEM and IDS coverage as the security layer for log analysis,
+    alerting, and network detection practice."
