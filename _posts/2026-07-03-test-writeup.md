@@ -1,6 +1,8 @@
 ---
 title: "Test writeup"
 date: 2026-07-03
+type: "note"
+status: "Learning note"
 tags:
   - Test
   - Markdown

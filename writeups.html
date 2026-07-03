@@ -9,28 +9,18 @@ permalink: /writeups/
 <h1 class="page-title">Writeups</h1>
 <p class="page-lede">Short incident and build notes from the homelab. The goal is practical evidence: what broke, how it was diagnosed, what changed, and what should be improved next.</p>
 
-<div class="log-list">
-  {% for post in site.posts %}
-    <article class="log-entry">
-      <div class="log-meta">
-        <span class="sev ok">{{ post.category_label | default: 'WRITEUP' }}</span>
-        <span class="ts">{{ post.date | date: '%b %Y' }}</span>
-      </div>
-      <div class="log-content">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {% if post.excerpt %}
-          <p>{{ post.excerpt | strip_html }}</p>
-        {% endif %}
-        {% if post.tags %}
-          <div class="stack-pills">
-            {% for tag in post.tags %}
-              <span class="pill">{{ tag }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
-      </div>
-    </article>
-  {% else %}
+{% assign incident_posts = site.posts | where: 'type', 'incident' %}
+{% assign build_posts = site.posts | where: 'type', 'build' %}
+{% assign project_posts = site.posts | where: 'type', 'project' %}
+{% assign note_posts = site.posts | where: 'type', 'note' %}
+
+{% if site.posts.size > 0 %}
+  {% include writeup-section.html number="01" title="Incidents" description="Break/fix reports with diagnosis, root cause, and prevention notes." posts=incident_posts empty_meta="incidents" empty_title="No incident writeups yet" empty_text="Use type: incident for outage, failure, and root-cause writeups." %}
+  {% include writeup-section.html number="02" title="Builds" description="Infrastructure and service build logs from the homelab." posts=build_posts empty_meta="builds" empty_title="No build logs yet" empty_text="Use type: build for service setup, infrastructure changes, and implementation notes." %}
+  {% include writeup-section.html number="03" title="Projects" description="Longer-form practical work, tools, and portfolio projects." posts=project_posts empty_meta="projects" empty_title="No project writeups yet" empty_text="Use type: project for larger portfolio projects and tools." %}
+  {% include writeup-section.html number="04" title="Notes" description="Short learning notes, references, and experiments." posts=note_posts empty_meta="notes" empty_title="No notes yet" empty_text="Use type: note for shorter learning notes and experiments." %}
+{% else %}
+  <div class="log-list">
     <article class="log-entry">
       <div class="log-meta">
         <span class="sev warn">PENDING</span>
@@ -41,5 +31,5 @@ permalink: /writeups/
         <p>This page is wired into Jekyll and ready for real posts when you add them under <code>_posts/</code>.</p>
       </div>
     </article>
-  {% endfor %}
-</div>
+  </div>
+{% endif %}

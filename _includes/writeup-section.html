@@ -1,0 +1,60 @@
+{% assign posts = include.posts %}
+<div class="writeup-group">
+  <div class="writeup-group-head">
+    <span class="section-num">{{ include.number }}</span>
+    <div>
+      <h2>{{ include.title }}</h2>
+      {% if include.description %}
+        <p>{{ include.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="log-list">
+    {% if posts.size > 0 %}
+    {% for post in posts %}
+      {% assign status = post.status | default: post.category_label | default: 'Writeup' %}
+      {% assign status_key = status | downcase %}
+      {% assign status_class = 'info' %}
+      {% if status_key contains 'resolved' %}
+        {% assign status_class = 'ok' %}
+      {% elsif status_key contains 'progress' %}
+        {% assign status_class = 'warn' %}
+      {% elsif status_key contains 'incident' %}
+        {% assign status_class = 'crit' %}
+      {% endif %}
+
+      <article class="log-entry">
+        <div class="log-meta">
+          <span class="sev {{ status_class }}">{{ status | upcase }}</span>
+          <span class="ts">{{ post.date | date: '%b %Y' }}</span>
+        </div>
+        <div class="log-content">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.excerpt %}
+            <p>{{ post.excerpt | strip_html }}</p>
+          {% endif %}
+          {% if post.tags %}
+            <div class="stack-pills">
+              {% for tag in post.tags %}
+                <span class="pill">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+    {% else %}
+      <article class="log-entry is-empty">
+        <div class="log-meta">
+          <span class="sev warn">PENDING</span>
+          <span class="ts">{{ include.empty_meta | default: 'writeups' }}</span>
+        </div>
+        <div class="log-content">
+          <h3>{{ include.empty_title | default: 'No posts yet' }}</h3>
+          <p>{{ include.empty_text | default: 'This section is ready for future Markdown writeups.' }}</p>
+        </div>
+      </article>
+    {% endif %}
+  </div>
+</div>

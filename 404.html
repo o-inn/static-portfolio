@@ -1,0 +1,36 @@
+---
+layout: default
+title: "Page not found"
+description: "The requested page could not be found."
+permalink: /404.html
+---
+
+<main class="wrap error-wrap">
+  <section class="error-hero">
+    <div>
+      <div class="eyebrow">ERROR: ROUTE NOT FOUND</div>
+      <h1>404.<br>That page is off the network.</h1>
+      <p class="lede">The URL does not map to a live page. It may have moved, been deleted, or never existed.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="{{ '/' | relative_url }}">Return home →</a>
+        <a class="btn" href="{{ '/writeups/' | relative_url }}">View writeups</a>
+      </div>
+    </div>
+
+    <div class="terminal error-terminal" role="img" aria-label="Simulated terminal log for a missing page">
+      <div class="terminal-bar">
+        <span class="terminal-dot" style="background:#E06C75"></span>
+        <span class="terminal-dot" style="background:#E8A33D"></span>
+        <span class="terminal-dot" style="background:#6FCF97"></span>
+        <span class="terminal-title">sullie.dev — route-check.log</span>
+      </div>
+      <div class="terminal-body">
+        <p class="term-line"><span class="tag warn">WARN</span>request received — checking route table</p>
+        <p class="term-line"><span class="tag info">INFO</span>lookup: {{ page.url | default: '/404.html' }}</p>
+        <p class="term-line"><span class="tag warn">WARN</span>route not found — no matching page generated</p>
+        <p class="term-line"><span class="tag ok">OK</span>fallback available — homepage and writeups online</p>
+        <span class="cursor"></span>
+      </div>
+    </div>
+  </section>
+</main>

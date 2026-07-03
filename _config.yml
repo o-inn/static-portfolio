@@ -10,7 +10,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      category_label: "INCIDENT WRITEUP"
+      type: "note"
+      status: "Writeup"
       hide_footer: true
 
 plugins:
