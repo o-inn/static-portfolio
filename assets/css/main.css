@@ -194,6 +194,8 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
 .about-body strong { color: var(--paper); font-weight: 600; }
 .about-photo-card {
   margin: 0;
+  width: min(100%, 280px);
+  justify-self: end;
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 8px;
@@ -209,7 +211,10 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
 
 @media (max-width: 760px) {
   .about-grid { grid-template-columns: 1fr; }
-  .about-photo-card { max-width: 320px; }
+  .about-photo-card {
+    width: min(100%, 320px);
+    justify-self: start;
+  }
 }
 
 .log-list { display: flex; flex-direction: column; gap: 14px; }

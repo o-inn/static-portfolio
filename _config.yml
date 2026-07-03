@@ -1,7 +1,8 @@
 title: "Eoghan Sullivan — IT, Networking & Infrastructure"
 description: "Homelab-driven IT portfolio. Networking, server administration, and security fundamentals — certification roadmap and hands-on build/break/fix writeups."
 baseurl: ""
-url: ""
+url: "https://sullie.dev"
+image: "/assets/img/social-preview.jpg"
 permalink: /writeups/:title/
 
 defaults:
