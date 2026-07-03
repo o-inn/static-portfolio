@@ -43,6 +43,10 @@ body::before {
 a { color: var(--signal); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 
 .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 .post-wrap { max-width: 760px; }
@@ -275,6 +279,16 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
   overflow-wrap: anywhere;
 }
 .contact-action:hover { background: rgba(96, 218, 232, 0.06); text-decoration: none; }
+.contact-action-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.contact-action-row a { min-width: 0; overflow-wrap: anywhere; }
+.copy-email {
+  width: 34px; height: 34px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--panel-border); border-radius: 999px;
+  background: transparent; color: var(--signal); cursor: pointer;
+  padding: 0;
+}
+.copy-email:hover { border-color: var(--signal); background: rgba(96, 218, 232, 0.06); }
+.copy-email.is-copied { border-color: var(--good); color: var(--good); }
 .contact-action .label,
 .social-block > .label {
   font-family: var(--mono); font-size: 0.7rem; color: var(--fog);
@@ -295,6 +309,7 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
 @media (max-width: 700px) {
   .contact-panel { padding: 14px; }
   .contact-actions { grid-template-columns: 1fr; }
+  .contact-action-row { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
 
 .site-footer { padding: 40px 0 60px; text-align: center; color: var(--fog); font-family: var(--mono); font-size: 0.78rem; position: relative; z-index: 1; }
@@ -496,6 +511,7 @@ pre code { background: none; border: none; padding: 0; color: var(--paper); }
   margin: 56px 0 80px; padding-top: 28px; border-top: 1px solid var(--panel-border);
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
 }
+.post-footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
 .back-link { font-family: var(--mono); font-size: 0.85rem; }
 .related { font-family: var(--mono); font-size: 0.78rem; color: var(--fog); }
 

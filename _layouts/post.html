@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<main class="wrap post-wrap">
+<main id="top" class="wrap post-wrap">
   <div class="breadcrumb"><a href="{{ '/writeups/' | relative_url }}">← back to writeups</a></div>
 
   {% assign status = page.status | default: page.category_label | default: 'Writeup' %}
@@ -27,7 +27,12 @@ layout: default
   </div>
 
   <div class="post-footer">
-    <a class="back-link" href="{{ '/writeups/' | relative_url }}">← All writeups</a>
+    <div class="post-footer-links">
+      <a class="back-link" href="{{ '/writeups/' | relative_url }}">← All writeups</a>
+      {% if word_count > 300 %}
+      <a class="back-link" href="#top">Back to top ↑</a>
+      {% endif %}
+    </div>
     <span class="related">Related: <a href="{{ '/' | relative_url }}#homelab">Homelab build log</a></span>
   </div>
 </main>

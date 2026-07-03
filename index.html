@@ -205,10 +205,19 @@ terminal_log: true
   <p class="contact-note">Open to technical support, networking, and junior infrastructure/security opportunities.</p>
   <div class="contact-panel">
     <div class="contact-actions">
-      <a class="contact-action" href="mailto:eoghan_osullivan@icloud.com?subject=Portfolio%20enquiry&body=Hi%20Eoghan%2C%0A%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20get%20in%20touch.%0A%0A">
+      <div class="contact-action contact-action-email">
         <span class="label">Email</span>
-        <span>eoghan_osullivan@icloud.com</span>
-      </a>
+        <div class="contact-action-row">
+          <a href="mailto:eoghan_osullivan@icloud.com?subject=Portfolio%20enquiry&body=Hi%20Eoghan%2C%0A%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20get%20in%20touch.%0A%0A">eoghan_osullivan@icloud.com</a>
+          <button class="copy-email" type="button" data-copy="eoghan_osullivan@icloud.com" aria-label="Copy email address">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false">
+              <path d="M8 8V5.8C8 4.81 8.81 4 9.8 4h8.4c.99 0 1.8.81 1.8 1.8v8.4c0 .99-.81 1.8-1.8 1.8H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 9.8C4 8.81 4.81 8 5.8 8h8.4c.99 0 1.8.81 1.8 1.8v8.4c0 .99-.81 1.8-1.8 1.8H5.8C4.81 20 4 19.19 4 18.2V9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Copy email address</span>
+          </button>
+        </div>
+      </div>
       <a class="contact-action" href="{{ '/assets/docs/eoghan-sullivan-cv.pdf' | relative_url }}" target="_blank" rel="noopener">
         <span class="label">CV</span>
         <span>Download CV →</span>
