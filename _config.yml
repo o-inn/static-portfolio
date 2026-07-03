@@ -1,0 +1,17 @@
+title: "Eoghan Sullivan — IT, Networking & Infrastructure"
+description: "Homelab-driven IT portfolio. Networking, server administration, and security fundamentals — certification roadmap and hands-on build/break/fix writeups."
+baseurl: ""
+url: ""
+permalink: /writeups/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      category_label: "INCIDENT WRITEUP"
+      hide_footer: true
+
+plugins:
+  - jekyll-feed
