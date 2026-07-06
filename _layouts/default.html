@@ -56,10 +56,11 @@
           ><span class="logo-dot"></span>sullie.dev</a
         >
         <nav class="links" aria-label="Primary navigation">
-          <a href="{{ '/' | relative_url }}#about">about</a>
-          <a href="{{ '/homelab/' | relative_url }}">homelab</a>
-          <a href="{{ '/writeups/' | relative_url }}">writeups</a>
-          <a href="{{ '/' | relative_url }}#contact">contact</a>
+          <a class="{% if page.url == '/' %}is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+          <a class="{% if page.url contains '/homelab/' %}is-active{% endif %}" href="{{ '/homelab/' | relative_url }}">Homelab</a>
+          <a class="{% if page.url contains '/writeups/' %}is-active{% endif %}" href="{{ '/writeups/' | relative_url }}">Writeups</a>
+          <a class="{% if page.url contains '/projects/' %}is-active{% endif %}" href="{{ '/projects/' | relative_url }}">Projects</a>
+          <a class="nav-cta {% if page.url contains '/contact/' %}is-active{% endif %}" href="{{ '/contact/' | relative_url }}">Contact</a>
         </nav>
         <button
           class="mobile-menu-toggle"
@@ -76,10 +77,11 @@
         id="mobile-menu-panel"
         aria-label="Mobile navigation"
       >
-        <a href="{{ '/' | relative_url }}#about">about</a>
-        <a href="{{ '/homelab/' | relative_url }}">homelab</a>
-        <a href="{{ '/writeups/' | relative_url }}">writeups</a>
-        <a href="{{ '/' | relative_url }}#contact">contact</a>
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/homelab/' | relative_url }}">Homelab</a>
+        <a href="{{ '/writeups/' | relative_url }}">Writeups</a>
+        <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        <a href="{{ '/contact/' | relative_url }}">Contact</a>
       </nav>
     </header>
 

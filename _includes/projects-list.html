@@ -1,0 +1,31 @@
+{% if site.data.projects and site.data.projects.size > 0 %}
+<div class="project-grid">
+  {% for project in site.data.projects %}
+  <article class="project-card">
+    <div class="project-card-head">
+      <span class="sev info">{{ project.status | upcase }}</span>
+      {% if project.language %}
+      <span class="ts">{{ project.language }}</span>
+      {% endif %}
+    </div>
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.summary }}</p>
+    <div class="project-card-footer">
+      {% if project.updated %}
+      <span class="ts">Updated {{ project.updated | date: "%b %Y" }}</span>
+      {% endif %}
+      <a class="mono-link" href="{{ project.github }}" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<article class="project-card project-card-empty">
+  <div class="project-card-head">
+    <span class="sev warn">PENDING</span>
+    <span class="ts">projects</span>
+  </div>
+  <h3>No projects to show currently</h3>
+  <p>This section is ready for curated GitHub projects once there is something worth highlighting.</p>
+</article>
+{% endif %}
