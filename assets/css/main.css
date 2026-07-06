@@ -269,7 +269,7 @@ h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2rem); margin: 0
   border: 1px solid var(--panel-border); border-radius: 8px;
 }
 .contact-actions {
-  display: grid; grid-template-columns: minmax(260px, 1fr) minmax(180px, 0.45fr);
+  display: grid; grid-template-columns: 1fr;
   gap: 1px; background: var(--panel-border); border: 1px solid var(--panel-border);
   border-radius: 6px; overflow: hidden;
 }
